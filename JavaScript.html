@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>预热作业</title>
+	<style type="text/css">
+		body,p,div,input {
+			margin:0;
+			padding:0;
+		}
+		body {
+			font-family: "微软雅黑";
+			background-color: #efefef;
+		}
+		input {
+			border:none;
+			outline: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		.wrap {
+			margin:20px;
+		}
+		.wrap p {
+			font-size: 30px;
+			font-weight: bold;
+			height:50px;
+			line-height: 50px;
+			margin-bottom: 10px;
+		}
+		.wrap p input {
+			width: 100px;
+			line-height: 50px;
+			font-size: 16px;
+			color:#fff;
+			background-color: #ff0000;
+			text-align: center; 
+
+		}
+		#div1 {
+			width:100px;
+			height:100px;
+			border:5px solid #000;
+			background-color: #fff;
+		}
+		#mark {
+			position: absolute;
+			left: 0;
+			top:0;
+			right: 0;
+			bottom: 0;
+			display: none;
+		}
+		.opacity_bg {
+			position: absolute;
+			left: 0;
+			top:0;
+			right: 0;
+			bottom: 0;
+			background: #000;
+			opacity: 0.6;
+		}
+		.panel {
+			position: absolute;
+			right:50px;
+			bottom:50px;
+			z-index: 2;
+			width:256px;
+			height:162px;
+			background-color: #fff;
+			border:20px solid #9c949c;
+			padding:16px 0 20px 32px;
+		}
+		.panel p {
+			font-size: 16px;
+			color:#000;
+			height:32px;
+			line-height: 32px;
+			margin-bottom: 10px;
+		}
+		
+		.panel a {
+			width:34px;
+			height:30px;
+			text-align: center;
+			display: inline-block;
+			margin-right: 6px;
+			font-size: 14px;
+			cursor: pointer;
+		}
+		#color a {
+			color:#fff;
+		}
+		.red {
+			background-color: #9cce00;
+			border:1px solid #9cce00;
+		}
+		a.red:hover {
+			background-color: #ff0000;
+			border-color: #000;
+		}
+		.yellow {
+			background-color: #efbd00;
+			border:1px solid #efbd00;
+		}
+		a.yellow:hover {
+			background-color: #ffff00;
+			border-color: #000;
+		}
+		
+		.blue {
+			background-color: #5a94ef;
+			border:1px solid #5a94ef;
+		}
+		a.blue:hover {
+			background-color: #0000ff;
+			border-color: #000;
+		}
+		#width a ,#height a {
+			border:1px solid #c0c0c0;
+			background-color: #efefef;
+			color:#848c8c;
+		}
+		#width a:hover ,#height a:hover {
+			background-color:#ef9400;
+			border-color:#000;
+			color:#000;
+		}
+		.panel #btn a {
+			color: #fff;
+			display: inline-block;
+			font-size: 14px;
+			width:62px;
+			height:30px;
+			line-height: 30px;
+			background-color: #002952;
+			text-align: center;
+			margin-right: 6px;
+		}
+		p#btn {
+			text-align: center;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var set_btn=document.getElementById("set_btn");
+			var oDiv=document.getElementById("div1");
+			var mark=document.getElementById("mark");
+			set_btn.onclick=function(){
+				mark.style.display="block";
+			}
+
+			var oColor=document.getElementById("color").getElementsByTagName("a");
+			var oWidth=document.getElementById("width").getElementsByTagName("a");
+			var oHeight=document.getElementById("height").getElementsByTagName("a");
+			var oBtn=document.getElementById("btn").getElementsByTagName("a");
+
+			for(var i=0 ; i<oColor.length ; i++){
+				oColor[i].onclick=function(){
+					oDiv.style.backgroundColor=this.className;
+				}
+				oWidth[i].onclick=function(){
+					oDiv.style.width=this.className;
+				}
+				oHeight[i].onclick=function(){
+					oDiv.style.height=this.className;
+				}
+			}
+			oBtn[0].onclick=function(){
+				oDiv.style.backgroundColor="white";
+				oDiv.style.width=100+'px';
+				oDiv.style.height=100+'px';
+			}
+			oBtn[1].onclick=function(){
+				mark.style.display="none";
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<p>请为下面的DIV设置样式：<input type="button" name="btn" value="点击设置" id="set_btn"></p>
+		<div id="div1"></div>
+	</div>
+	<div id="mark">
+		<div class="opacity_bg"></div>
+		<div class="panel">
+			<p id="color">请选择背景色：<a href="#" class="red">红</a><a href="#" class="yellow">黄</a><a href="#" class="blue">蓝</a></p>
+			<p id="width">请选择宽(px)：<a href="#" class="200px">200</a><a href="#" class="300px">300</a><a href="#" class="400px">400</a></p>
+			<p id="height">请选择高(px)：<a href="#" class="200px">200</a><a href="#" class="300px">300</a><a href="#" class="400px">400</a></p>
+			<p id="btn"><a href="#">恢复</a><a href="#">确定</a></p>
+		</div>
+	</div>
+</body>
+</html>
